@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:45
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-09 22:46:44
+ * @LastEditTime: 2020-05-11 20:18:21
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +32,8 @@
         }
         ChangeStyle.prototype.init = function () {
             //点击按钮,改变div多个样式属性值
+            //这里的是用that来包含实例对象cs
+            //如果直接在下面用this的话 会认为是this.btnObj
             var that = this;
             this.btnObj.onclick = function () { //按钮
                 for (var key in that.json) {
@@ -39,7 +41,6 @@
                 }
             };
         };
-
 
         //实例化对象
         var json = {
@@ -72,7 +73,7 @@
         //  //数据共享来改变背景颜色
         //  ChangeStyle.prototype.init=function () {
         //    //console.log(this);//就是实例对象---就是当前对象
-        //    var that=this;
+        //    var that=this; 
         //    //点击按钮,改变div的背景颜色
         //    this.btnObj.onclick=function () {
         //      that.dvObj.style.backgroundColor=that.color;
