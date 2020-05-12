@@ -1,19 +1,34 @@
-/**
- * Created by Administrator on 2017-09-27.
+/*
+ * @Description: 自调用函数---小蛇
+ * @Autor: HWK
+ * @Date: 2020-05-03 18:13:53
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-12 22:06:58
  */
-//自调用函数---小蛇
+
 (function () {
-    var elements = [];//存放小蛇的每个身体部分
+    var elements = []; //存放小蛇的每个身体部分
     //小蛇的构造函数
     function Snake(width, height, direction) {
         //小蛇的每个部分的宽
         this.width = width || 20;
         this.height = height || 20;
         //小蛇的身体
-        this.body = [
-            {x: 3, y: 2, color: "red"},//头
-            {x: 2, y: 2, color: "orange"},//身体
-            {x: 1, y: 2, color: "orange"}//身体
+        this.body = [{
+                x: 3,
+                y: 2,
+                color: "red"
+            }, //头
+            {
+                x: 2,
+                y: 2,
+                color: "orange"
+            }, //身体
+            {
+                x: 1,
+                y: 2,
+                color: "orange"
+            } //身体
         ];
         //方向
         this.direction = direction || "right";
@@ -22,7 +37,7 @@
     //为原型添加方法--小蛇初始化的方法
     Snake.prototype.init = function (map) {
         //先删除之前的小蛇
-        remove();//===========================================
+        remove(); //===========================================
 
         //循环遍历创建div
         for (var i = 0; i < this.body.length; i++) {
@@ -50,7 +65,7 @@
     //为原型添加方法---小蛇动起来
     Snake.prototype.move = function (food, map) {
         //改变小蛇的身体的坐标位置
-        var i = this.body.length - 1;//2
+        var i = this.body.length - 1; //2
         for (; i > 0; i--) {
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
@@ -73,23 +88,22 @@
 
         //判断有没有吃到食物
         //小蛇的头的坐标和食物的坐标一致
-        var headX=this.body[0].x*this.width;
-        var headY=this.body[0].y*this.height;
+        var headX = this.body[0].x * this.width;
+        var headY = this.body[0].y * this.height;
         //判断小蛇的头的坐标和食物的坐标是否相同
-        if(headX==food.x&&headY==food.y){
+        if (headX == food.x && headY == food.y) {
             //获取小蛇的最后的尾巴
-            var last=this.body[this.body.length-1];
+            var last = this.body[this.body.length - 1];
             //把最后的蛇尾复制一个,重新的加入到小蛇的body中
             this.body.push({
-                x:last.x,
-                y:last.y,
-                color:last.color
+                x: last.x,
+                y: last.y,
+                color: last.color
             });
             //把食物删除,重新初始化食物
             food.init(map);
         }
-    }
-    ;//删除小蛇的私有的函数=============================================================================
+    }; //删除小蛇的私有的函数=============================================================================
     function remove() {
         //删除map中的小蛇的每个div,同时删除elements数组中的每个元素,从蛇尾向蛇头方向删除div
         var i = elements.length - 1;

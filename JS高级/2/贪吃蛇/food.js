@@ -1,9 +1,13 @@
-/**
- * Created by Administrator on 2017-09-27.
+/*
+ * @Description: 自调用函数----食物的
+ * @Autor: HWK
+ * @Date: 2020-05-03 18:13:53
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-12 22:07:14
  */
-//自调用函数----食物的
+
 (function () {
-    var elements = [];//用来保存每个小方块食物的
+    var elements = []; //用来保存每个小方块食物的
     //食物就是一个对象,有宽,有高,有颜色,有横纵坐标,先定义构造函数,然后创建对象
     function Food(x, y, width, height, color) {
         //横纵坐标

@@ -1,17 +1,21 @@
-/**
- * Created by Administrator on 2017-09-27.
+/*
+ * @Description: 自调用函数---游戏对象
+ * @Autor: HWK
+ * @Date: 2020-05-03 18:13:53
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-12 22:07:06
  */
-//自调用函数---游戏对象================================================
+
 (function () {
 
-    var that = null;//该变量的目的就是为了保存游戏Game的实例对象-------
+    var that = null; //该变量的目的就是为了保存游戏Game的实例对象-------
 
     //游戏的构造函数
     function Game(map) {
-        this.food = new Food();//食物对象
-        this.snake = new Snake();//小蛇对象
-        this.map = map;//地图
-        that = this;//保存当前的实例对象到that变量中-----------------此时that就是this
+        this.food = new Food(); //食物对象
+        this.snake = new Snake(); //小蛇对象
+        this.map = map; //地图
+        that = this; //保存当前的实例对象到that变量中-----------------此时that就是this
     }
 
     //初始化游戏-----可以设置小蛇和食物显示出来
@@ -24,7 +28,7 @@
         //调用自动移动小蛇的方法========================||调用了小蛇自动移动的方法
         this.runSnake(this.food, this.map);
         //调用按键的方法
-        this.bindKey();//========================================
+        this.bindKey(); //========================================
     };
 
     //添加原型方法---设置小蛇可以自动的跑起来
@@ -60,23 +64,30 @@
     };
 
     //添加原型方法---设置用户按键,改变小蛇移动的方向
-    Game.prototype.bindKey=function () {
+    Game.prototype.bindKey = function () {
 
         //获取用户的按键,改变小蛇的方向
-        document.addEventListener("keydown",function (e) {
+        document.addEventListener("keydown", function (e) {
             //这里的this应该是触发keydown的事件的对象---document,
             //所以,这里的this就是document
             //获取按键的值
-            switch (e.keyCode){
-                case 37:this.snake.direction="left";break;
-                case 38:this.snake.direction="top";break;
-                case 39:this.snake.direction="right";break;
-                case 40:this.snake.direction="bottom";break;
+            switch (e.keyCode) {
+                case 37:
+                    this.snake.direction = "left";
+                    break;
+                case 38:
+                    this.snake.direction = "top";
+                    break;
+                case 39:
+                    this.snake.direction = "right";
+                    break;
+                case 40:
+                    this.snake.direction = "bottom";
+                    break;
             }
-        }.bind(that),false);
+        }.bind(that), false);
     };
 
     //把Game暴露给window,外部就可以访问Game对象了
     window.Game = Game;
 }());
-
