@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:45
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-12 21:57:20
+ * @LastEditTime: 2020-05-12 22:14:14
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
                 return Math.floor(Math.random() * (max - min) + min);
             };
             //把局部对象暴露给window顶级对象,就成了全局的对象
-            window.Random = new Random();
+            window.random = new Random();
         })(window); //自调用构造函数的方式,分号一定要加上
 
 
@@ -70,8 +70,8 @@
             //产生随机位置
             Food.prototype.render = function (map) {
                 //随机产生横纵坐标
-                var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
-                var y = Random.getRandom(0, map.offsetHeight / this.height) * this.height;
+                var x = random.getRandom(0, map.offsetWidth / this.width) * this.width;
+                var y = random.getRandom(0, map.offsetHeight / this.height) * this.height;
                 this.x = x;
                 this.y = y;
                 var div = this.element;

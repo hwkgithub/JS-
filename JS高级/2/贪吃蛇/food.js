@@ -3,12 +3,13 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:53
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-12 22:07:14
+ * @LastEditTime: 2020-05-12 22:19:04
  */
 
 (function () {
     var elements = []; //用来保存每个小方块食物的
     //食物就是一个对象,有宽,有高,有颜色,有横纵坐标,先定义构造函数,然后创建对象
+    //自定义构造函数
     function Food(x, y, width, height, color) {
         //横纵坐标
         this.x = x || 0;
@@ -44,6 +45,7 @@
         div.style.top = this.y + "px";
 
         //把div加入到数组elements中
+        //push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度
         elements.push(div);
     };
 
