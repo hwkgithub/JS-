@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:53
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-12 22:06:58
+ * @LastEditTime: 2020-05-13 22:13:32
  */
 
 (function () {
@@ -14,6 +14,7 @@
         this.width = width || 20;
         this.height = height || 20;
         //小蛇的身体
+        //x y 指示坐标告诉在哪个位置还要乘以宽高才能在指定位置
         this.body = [{
                 x: 3,
                 y: 2,
@@ -23,12 +24,12 @@
                 x: 2,
                 y: 2,
                 color: "orange"
-            }, //身体
+            }, //第二段身体
             {
                 x: 1,
                 y: 2,
                 color: "orange"
-            } //身体
+            } //第三段身体
         ];
         //方向
         this.direction = direction || "right";
@@ -37,7 +38,7 @@
     //为原型添加方法--小蛇初始化的方法
     Snake.prototype.init = function (map) {
         //先删除之前的小蛇
-        remove(); //===========================================
+        remove();
 
         //循环遍历创建div
         for (var i = 0; i < this.body.length; i++) {
@@ -66,7 +67,8 @@
     Snake.prototype.move = function (food, map) {
         //改变小蛇的身体的坐标位置
         var i = this.body.length - 1; //2
-        for (; i > 0; i--) {
+        //蛇头要另外确定方向所以不用取代 所以i>0
+        for (; i > 1; i--) {
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
         }
@@ -103,10 +105,13 @@
             //把食物删除,重新初始化食物
             food.init(map);
         }
-    }; //删除小蛇的私有的函数=============================================================================
+    };
+
+    //删除小蛇的私有的函数
     function remove() {
         //删除map中的小蛇的每个div,同时删除elements数组中的每个元素,从蛇尾向蛇头方向删除div
         var i = elements.length - 1;
+        //删除原来小蛇需要删除蛇头所以要i>=0
         for (; i >= 0; i--) {
             //先从当前的子元素中找到该子元素的父级元素,然后再弄死这个子元素
             var ele = elements[i];

@@ -3,21 +3,20 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:53
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-12 22:07:06
+ * @LastEditTime: 2020-05-13 22:03:52
  */
 
 (function () {
-
-    var that = null; //该变量的目的就是为了保存游戏Game的实例对象-------
-
+    //该变量的目的就是为了保存游戏Game的实例对象
+    var that = null;
     //游戏的构造函数
     function Game(map) {
         this.food = new Food(); //食物对象
         this.snake = new Snake(); //小蛇对象
         this.map = map; //地图
-        that = this; //保存当前的实例对象到that变量中-----------------此时that就是this
+        //保存当前的实例对象到that变量中 此时that就是this
+        that = this;
     }
-
     //初始化游戏-----可以设置小蛇和食物显示出来
     Game.prototype.init = function () {
         //初始化游戏
@@ -28,12 +27,11 @@
         //调用自动移动小蛇的方法========================||调用了小蛇自动移动的方法
         this.runSnake(this.food, this.map);
         //调用按键的方法
-        this.bindKey(); //========================================
+        this.bindKey();
     };
 
     //添加原型方法---设置小蛇可以自动的跑起来
     Game.prototype.runSnake = function (food, map) {
-
         //自动的去移动
         var timeId = setInterval(function () {
             //此时的this是window
@@ -60,7 +58,7 @@
                 clearInterval(timeId);
                 alert("游戏结束");
             }
-        }.bind(that), 300);
+        }.bind(that), 150);
     };
 
     //添加原型方法---设置用户按键,改变小蛇移动的方向
