@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:53
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-13 22:13:32
+ * @LastEditTime: 2020-05-14 22:07:28
  */
 
 (function () {
@@ -68,7 +68,7 @@
         //改变小蛇的身体的坐标位置
         var i = this.body.length - 1; //2
         //蛇头要另外确定方向所以不用取代 所以i>0
-        for (; i > 1; i--) {
+        for (; i > 0; i--) {
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
         }

@@ -3,9 +3,10 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:13:53
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-13 22:03:52
+ * @LastEditTime: 2020-05-14 22:07:06
  */
 
+//这个游戏对象是为了把食物的初始化和删除，随机生成以及小蛇的初始化，删除，移动放在一个对象里面初始化调用
 (function () {
     //该变量的目的就是为了保存游戏Game的实例对象
     var that = null;
@@ -24,7 +25,7 @@
         this.food.init(this.map);
         //小蛇初始化
         this.snake.init(this.map);
-        //调用自动移动小蛇的方法========================||调用了小蛇自动移动的方法
+        //调用自动移动小蛇的方法
         this.runSnake(this.food, this.map);
         //调用按键的方法
         this.bindKey();
@@ -63,12 +64,14 @@
 
     //添加原型方法---设置用户按键,改变小蛇移动的方向
     Game.prototype.bindKey = function () {
-
         //获取用户的按键,改变小蛇的方向
+        //element.addEventListener(event, function, useCapture)
+        //三个参数对应(字符串 指定事件名,指定要事件触发时执行的函数,布尔值，指定事件是否在捕获或冒泡阶段执行)
         document.addEventListener("keydown", function (e) {
             //这里的this应该是触发keydown的事件的对象---document,
-            //所以,这里的this就是document
+            //所以,这里的this就是document 在下面如果直接用this会无法访问到snake
             //获取按键的值
+            //event.keyCode:获取点击的键盘键码，它不是ASCII码
             switch (e.keyCode) {
                 case 37:
                     this.snake.direction = "left";
