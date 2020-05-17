@@ -1,37 +1,45 @@
+<!--
+ * @Description: 
+ * @Autor: HWK
+ * @Date: 2020-05-03 18:14:24
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-17 21:34:22
+--> 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <script>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script>
+        //普通的函数
+        function f1() {
+            var num = 10;
+            num++;
+            return num;
+        }
+        console.log(f1());
+        console.log(f1());
+        console.log(f1());
 
-
-    //普通的函数
-    function f1() {
-      var num = 10;
-      num++;
-      return num;
-    }
-    console.log(f1());
-    console.log(f1());
-    console.log(f1());
-
-    //函数模式的闭包
-    function f2() {
-      var num = 10;
-      return function () {
-        num++;
-        return num;
-      }
-    }
-    var ff = f2();
-    console.log(ff());//11
-    console.log(ff());//12
-    console.log(ff());//13
-  </script>
+        //函数模式的闭包
+        function f2() {
+            var num = 10;
+            return function () {
+                num++;
+                return num;
+            }
+        }
+        var ff = f2();
+        console.log(ff()); //11
+        console.log(ff()); //12
+        console.log(ff()); //13
+    </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
