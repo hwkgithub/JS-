@@ -1,40 +1,46 @@
+<!--
+ * @Description: 
+ * @Autor: HWK
+ * @Date: 2020-05-03 18:14:24
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-18 20:40:22
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <script>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script>
+        (function () {
+            var str = "小白喜欢小黑";
+            //substr()方法可在字符串中抽取从 start 下标开始的指定数目的字符。
+            //stringObject.substr(start,length)
+            str = str.substr(2);
+            console.log(str);
+        }());
 
 
-    (function () {
-      var str="小白喜欢小黑";
-      str=str.substr(2);
-      console.log(str);
-    }());
-
-
-    //沙箱
-    (function () {
-      var str="小明喜欢小红";
-      str=str.substr(2);
-      console.log(str);
-    }());
-
-
-
-  </script>
+        //沙箱
+        (function () {
+            var str = "小明喜欢小红";
+            str = str.substr(2);
+            console.log(str);
+        }());
+    </script>
 </head>
-<body>
-<input type="button" value="按钮" id="btn"/>
-<script>
-  //点击按钮,弹出对话框
-  (function () {
-    document.getElementById("btn").onclick=function () {
-      console.log("按钮被点击了");
-    };
-  }());
 
-</script>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script>
+        //点击按钮,弹出对话框
+        (function () {
+            document.getElementById("btn").onclick = function () {
+                console.log("按钮被点击了");
+            };
+        }());
+    </script>
 
 </body>
+
 </html>
