@@ -3,8 +3,8 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:14:35
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-20 21:51:02
---> 
+ * @LastEditTime: 2020-05-25 22:27:14
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +18,7 @@
     请输入您的名字:<input type="text" value="" id="userName" />*<br />
     <script>
         //是中文名字,则绿色,否则红色
+        //onblur 事件会在对象失去焦点时发生。
         document.getElementById("userName").onblur = function () {
             var reg = /^[\u4e00-\u9fa5]{2,6}$/;
             if (reg.test(this.value)) {
