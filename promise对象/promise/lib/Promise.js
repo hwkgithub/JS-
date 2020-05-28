@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-27 21:49:54
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-27 21:50:04
+ * @LastEditTime: 2020-05-28 21:45:55
  */ 
 (function (window) {
 
@@ -111,6 +111,12 @@
                           value => resolve(vlaue),
                           reason => reject(reason)
                         ) */
+                        /*
+                        前面回调函数返回的是一个Promise对象里面有resolve和reject方法,
+                        要用then方法来接受他的值,然后在then方法里面有指定接收成功和失败的值的方法,
+                        接收了值之后把值又放在返回的Promise对象的resolve或者reject方法里调用,
+                        从而来知道他是成功还是失败
+                        */
                         result.then(resolve, reject)
                     } else { // 3. 返回的不是promise, 返回promise为成功, value就是返回值
                         resolve(result)
