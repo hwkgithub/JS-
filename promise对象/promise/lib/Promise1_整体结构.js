@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-25 21:12:45
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-28 22:05:07
+ * @LastEditTime: 2020-05-29 22:11:11
  */
 /* 
 自定义Promise函数模块: IIFE
@@ -81,53 +81,13 @@
             */
             Promise.prototype.then = function (onResolved, onRejected) {
                 const self = this
-                return Promise((resolve, reject) => {
-                    if (self === PENDING) {
-                        self.callbacks.push({
-                            onResolved,
-                            onRejected
-                        })
-                    } else if (self === RESOLVED) {
-                        setTimeout(() => {
-                            try {
-                                const result = onResolved(self.data)
-                                if (result instanceof Promise) {
-                                    result.then(
-                                        value => {
-                                            resolve(value)
-                                        },
-                                        reason => {
-                                            reject(reason)
-                                        }
-                                    )
-                                } else {
-                                    resolve(result)
-                                }
-                            } catch (error) {
-                                reject(error)
-                            }
-                        })
-                    } else {
-                        setTimeout(() => {
-                            try {
-                                const result = onRejected(self.data)
-                                if (result instanceof Promise) {
-                                    result.then(
-                                        value => {
-                                            resolve(value)
-                                        },
-                                        reason => {
-                                            reject(reason)
-                                        }
-                                    )
-                                } else {
-                                    resolve(result)
-                                }
-                            } catch (error) {
-                                reject(error)
-                            }
+                return new Promise((resolve, reject) => {
+                    if (self.status === RESOLVED) {
+                        
+                    } else if (self.status === REJECTED) {
 
-                        })
+                    } else (self.status === PENDING) {
+                        
                     }
                 })
             }

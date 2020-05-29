@@ -79,8 +79,10 @@
         then(onResolved, onRejected) {
             const self = this
 
-            // 指定回调函数的默认值(必须是函数)
+            //指定回调函数的默认值(必须是函数)
+            //如果不是函数这里定义了一个方法会把成功的值传到后面或者是失败的异常抛出
             onResolved = typeof onResolved === 'function' ? onResolved : value => value
+            //异常穿透的问题 前面任何操作出了异常, 都会传到最后失败的回调中处理
             onRejected = typeof onRejected === 'function' ? onRejected : reason => {
                 throw reason
             }
