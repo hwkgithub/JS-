@@ -1,23 +1,33 @@
+<!--
+ * @Description: 
+ * @Autor: HWK
+ * @Date: 2020-05-25 21:12:45
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-05-31 20:16:10
+--> 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>11_Promise相关面试题1</title>
+    <meta charset="UTF-8">
+    <title>11_Promise相关面试题1</title>
 </head>
+
 <body>
 
-  <script>
-    setTimeout(()=>{
-      console.log(1)
-    },0)
-    Promise.resolve().then(()=>{
-      console.log(2)
-    })
-    Promise.resolve().then(()=>{
-      console.log(4)
-    })
-    console.log(3)
-  </script>
+    <script>
+        setTimeout(() => {
+            console.log(1)
+        }, 0)
+        Promise.resolve().then(() => {
+            console.log(2)
+        })
+        Promise.resolve().then(() => {
+            console.log(4)
+        })
+        console.log(3)
+    </script>
 
 </body>
+
 </html>
