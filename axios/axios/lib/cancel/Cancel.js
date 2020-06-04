@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Autor: HWK
+ * @Date: 2020-05-31 21:05:57
+ * @LastEditors: HWK
+ * @LastEditTime: 2020-06-04 21:55:22
+ */ 
 'use strict';
 
 /**
@@ -9,11 +16,11 @@
  * @param {string=} message The message.
  */
 function Cancel(message) {
-  this.message = message;
+    this.message = message;
 }
 
 Cancel.prototype.toString = function toString() {
-  return 'Cancel' + (this.message ? ': ' + this.message : '');
+    return 'Cancel' + (this.message ? ': ' + this.message : '');
 };
 
 // 用于标识是一个取消的error
