@@ -3,7 +3,7 @@
  * @Autor: HWK
  * @Date: 2020-05-03 18:14:24
  * @LastEditors: HWK
- * @LastEditTime: 2020-05-17 20:11:37
+ * @LastEditTime: 2020-12-20 14:58:34
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -79,16 +79,21 @@
 
         console.log("==============");
 
-        function Student(name, sex) {
-            this.name = name;
-            this.sex = sex;
-        }
-        var stu = new Student("小明", "人妖");
-        var r1 = per.sayHi.apply(stu, [10, 20]);
-        var r2 = per.sayHi.call(stu, 10, 20);
+        // function Student(name, sex) {
+        //     this.name = name;
+        //     this.sex = sex;
+        // }
+        // var stu = new Student("小明", "人妖");
+        // var r1 = per.sayHi.apply(stu, [10, 20]);
+        // var r2 = per.sayHi.call(stu, 10, 20);
 
-        console.log(r1);
-        console.log(r2);
+        // console.log(r1);
+        // console.log(r2);
+        function Student(name,sex) {
+            this.name = name;
+        }
+        var stu = new Student("xx");
+        per.sayHi.apply(stu)
     </script>
 </head>
 
