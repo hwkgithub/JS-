@@ -3,15 +3,15 @@
  * @Autor: HWK
  * @Date: 2022-03-16 16:06:29
  * @LastEditors: HWK
- * @LastEditTime: 2022-03-16 16:08:41
+ * @LastEditTime: 2022-03-16 16:12:56
  */
 
-function checkDiscontinuity(sopObj, count) {
+function checkDiscontinuity(arr) {
     let res = false
-    for (let i = 0; i < sopList.length; i++) {
-        if (i < sopList.length - 1) {
-            const key = sopList[i],
-                nextKey = sopList[i + 1]
+    for (let i = 0; i < arr.length; i++) {
+        if (i < arr.length - 1) {
+            const key = arr[i],
+                nextKey = arr[i + 1]
             if (parseInt(key) + 1 !== parseInt(nextKey)) {
                 res = true
                 break;
