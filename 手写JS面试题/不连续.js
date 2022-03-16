@@ -1,9 +1,9 @@
 /*
- * @Description: 判断图像是否不连续
+ * @Description: 判断是否不连续
  * @Autor: HWK
  * @Date: 2022-03-16 16:06:29
  * @LastEditors: HWK
- * @LastEditTime: 2022-03-16 16:12:56
+ * @LastEditTime: 2022-03-16 16:17:25
  */
 
 function checkDiscontinuity(arr) {

@@ -1,9 +1,9 @@
 /*
- * @Description: 
+ * @Description: 冒泡排序
  * @Autor: HWK
  * @Date: 2022-03-16 16:03:09
  * @LastEditors: HWK
- * @LastEditTime: 2022-03-16 16:11:08
+ * @LastEditTime: 2022-03-16 16:17:18
  */
 const array = [1, 4, -8, -3, 6, 12, 9, 8];
 
@@ -21,3 +21,4 @@ function sort(arr) {
 }
 
 sort(array);
+console.log(array);
