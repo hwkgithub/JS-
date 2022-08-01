@@ -15,3 +15,5 @@ function jiecheng(num) {
         return num * jiecheng(num - 1)
     }
 }
+let a = jiecheng(4)
+console.log(a);
